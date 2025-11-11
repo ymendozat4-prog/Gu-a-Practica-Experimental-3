@@ -1,0 +1,74 @@
+// BLOQUE 1: Ejercicios individuales (un solo número) 
+
+// 1. Serie de Fibonacci.
+function generarFibonacci(n) {
+  let anterior = 0;
+  let actual = 1;
+  for (let i = 0; i < n; i++) {
+    console.log(anterior); 
+    let nuevo = anterior + actual;
+    anterior = actual;
+    actual = nuevo;
+  }
+}
+let n = 8;
+generarFibonacci(n);
+
+// 2. Divisorees de un número.
+function obtenerDivisores(numero) {
+  texto = "Divisores:";
+  for (let i = 1; i <= numero; i++) {
+    if (numero % i === 0) {
+      texto += ", " + i;
+    }
+  }
+}
+let n = 12;
+obtenerDivisores(n);
+alert(texto);
+
+// 3. Suma de los divisores de un número.
+let entrada = prompt("Ingresa un número");
+let numero = parseInt(entrada);
+if (entrada !== "" && Number(entrada) > 0) {
+  let suma = 0;
+  let proceso = "";
+  for (let divisor = 1; divisor <= numero; divisor++) {
+    if (numero % divisor === 0) {
+      suma += divisor;
+      if (proceso === "") {
+        proceso += divisor; 
+      } else {
+        proceso += " + " + divisor;
+      }
+    }
+  }
+  alert("Divisores de " + numero + ": " + proceso + " = " + suma);
+} else {
+  alert("Por favor, ingresa un número entero positivo válido.");
+}
+
+// 4. Verificar si un número es perfecto.
+let entrada = prompt("Ingresa un número");
+let numero = parseInt(entrada);
+if (entrada !== "" && Number(entrada) > 0) {
+  let suma = 0;
+  let proceso = "";
+  for (let divisor = 1; divisor < numero; divisor++) {
+    if (numero % divisor === 0) {
+      suma += divisor;
+      proceso += (proceso === "") ? divisor : " + " + divisor;
+    }
+  }
+  if (suma === numero) {
+    alert(numero + " es un número perfecto.\n" +
+          "Divisores (sin incluir " + numero + "): " + proceso + " = " + suma);
+  } else {
+    alert(numero + " NO es un número perfecto.\n" +
+          "Divisores (sin incluir " + numero + "): " + proceso + " = " + suma);
+  }
+} else {
+  alert("Por favor, ingresa un número entero positivo válido.");
+}
+
+// 5. Verificar si un nú mero es primo.
