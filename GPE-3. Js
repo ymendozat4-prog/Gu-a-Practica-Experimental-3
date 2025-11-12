@@ -1,6 +1,7 @@
-// BLOQUE 1: Ejercicios individuales (un solo número) 
+// BLOQUE 1: eJERCICIOS INDIVIDUALES (UN SOLO NÚMERO)
 
 // 1. Serie de Fibonacci.
+
 function generarFibonacci(n) {
   let anterior = 0;
   let actual = 1;
@@ -15,6 +16,7 @@ let n = 8;
 generarFibonacci(n);
 
 // 2. Divisorees de un número.
+
 function obtenerDivisores(numero) {
   texto = "Divisores:";
   for (let i = 1; i <= numero; i++) {
@@ -28,6 +30,7 @@ obtenerDivisores(n);
 alert(texto);
 
 // 3. Suma de los divisores de un número.
+
 let entrada = prompt("Ingresa un número");
 let numero = parseInt(entrada);
 if (entrada !== "" && Number(entrada) > 0) {
@@ -49,6 +52,7 @@ if (entrada !== "" && Number(entrada) > 0) {
 }
 
 // 4. Verificar si un número es perfecto.
+
 let entrada = prompt("Ingresa un número");
 let numero = parseInt(entrada);
 if (entrada !== "" && Number(entrada) > 0) {
@@ -72,3 +76,265 @@ if (entrada !== "" && Number(entrada) > 0) {
 }
 
 // 5. Verificar si un nú mero es primo.
+
+function numeroPrimo() {
+  let numero = parseInt(prompt("Ingrese un número"));
+  let contador = 0;
+  for (let i = 2; i < numero; i++) {
+    if (numero % i === 0) {
+      contador++;
+    }
+  }
+  if (contador === 0) {
+    console.log(numero + " es primo");
+  } else {
+    console.log(numero + " no es primo");
+  }
+}
+numeroPrimo();
+
+// 6. Invertir los dijitos de un número.
+
+function invertirNumero() {
+  let numero = parseInt(prompt("Ingrese un número"));
+  let invertido = 0;
+  while (numero > 0) {
+    let digito = numero % 10;
+    invertido = invertido * 10 + digito;
+    numero = Math.floor(numero / 10);
+  }
+  console.log("Número invertido:", invertido);
+}
+invertirNumero();
+
+// 7. Contar dígitos de un número.
+
+function contarDigitos() {
+    let numero = parseInt(prompt("Ingrese un número"));
+    let contador = 0;
+     while (numero > 0) {
+        numero = Math.floor(numero / 10);
+        contador++;
+    }   
+    console.log("Cantidad de dígitos:", contador);
+}
+contarDigitos();
+
+// 8. Factorial de un número.
+
+function factorialNumero() {
+  let n = parseInt(prompt("Ingrese un número"));
+  let factorial = 1;
+  for (let cont = n; cont > 1; cont--) {
+    factorial *= cont;
+  }
+  console.log("El factorial de", n, "es:", factorial);
+}
+factorialNumero();
+
+// 9. Sumas sucesivas.
+
+function sumasSucesivas() {
+  let numero = parseInt(prompt("Ingrese el número a sumar:"));
+  let veces = parseInt(prompt("¿Cuántas veces desea sumarlo?"));
+  let suma = 0;
+  let contador = 1;
+  while (contador <= veces) {
+    suma = suma + numero;  
+    contador++;           
+  }
+  console.log("Resultado =", suma);
+}
+sumasSucesivas();
+
+// 10. Restas sucesivas.
+
+function restasSucesivas() {
+  let numero = parseInt(prompt("Ingrese el número inicial:"));
+  let valor = parseInt(prompt("Ingrese el valor a restar:"));
+  let veces = parseInt(prompt("¿Cuántas veces desea restarlo?"));
+  let contador = 1;
+  while (contador <= veces) {
+    numero = numero - valor;  
+    contador++;
+  }
+  console.log("Resultado final:", numero);
+}
+restasSucesivas();
+
+// BLOQUE 2: VERSIÓN CON ARREGLOS (LISTAS) 
+
+// 1. Serie de Fibonacci para varios términos.
+
+function fiboArreglo() {
+  let n_valores = [5, 8, 10];
+  for (let i = 0; i < n_valores.length; i++) {
+    let n = n_valores[i];
+    console.log("Fibonacci de " + n + ":");
+    let a = 0, b = 1, c = 0;
+    if (n >= 1) console.log(a);
+    if (n >= 2) console.log(b);
+    for (let j = 3; j <= n; j++) {
+      c = a + b;
+      console.log(c);
+      a = b;
+      b = c;
+    }
+  }
+}
+fiboArreglo();
+
+// 2. Divisores de varios números.
+
+function divisoresLista() {
+  let nums = [6, 10, 15];
+  for (let i = 0; i < nums.length; i++) {
+    let n = nums[i];
+    console.log("Divisores de " + n + ":");
+    for (let d = 1; d <= n; d++) {
+      if (n % d === 0) {
+        console.log(d);
+      }
+    }
+    console.log("--------------");
+  }
+}
+divisoresLista();
+
+// 3. Suma de divisores de varios números.
+
+function sumaDivisoresArreglos() {
+    let nums = [6, 12, 28];
+       for(let i=0; i<nums.length; i++){
+    let numero = nums[i];
+    let suma = 0;
+  for (let j = 1; j <= numero; j++) {
+    if (numero % j == 0) {
+      suma += j;
+    }
+  }
+    console.log(numero + " -> Suma de divisores: " + suma);
+    }
+}
+sumaDivisoresArreglos();
+
+// 4. Números perfectos en una lista.
+
+function numeroPerfectoArreglos() {
+  let nums = [6, 10, 28, 30];
+    for (let i = 0; i < nums.length; i++) {
+    let numero = nums[i];
+    let suma = 0;
+    for (let j = 1; j < numero; j++) {
+    if (numero % j == 0) {
+      suma += j;
+     }   
+    }
+    if (suma === numero) {
+        console.log(numero + " es un número perfecto.");
+    } else {
+        console.log(numero + " no es un número perfecto.");
+     }
+    }
+}
+numeroPerfectoArreglos();
+
+// 5. Números primos en una lista.
+
+function numeroPrimoArreglos() {
+    let numeros = [5, 6, 7, 8, 11];
+        for (let i = 0; i < numeros.length; i++) {
+    let numero = numeros[i];
+    let contador = 0;
+        for (let j = 2; j < numero; j++) {
+    if (numero % j === 0) {
+      contador++;
+    }
+  }
+    if (contador === 0) {
+    console.log(numero + " es primo");
+  } else {
+    console.log(numero + " no es primo");
+     }
+    }
+}
+numeroPrimoArreglos();
+
+// 6. Invertir varios números.
+
+function invertirNumeroArreglo() {
+  let numeros = [123, 456, 780];
+  for (let i = 0; i < numeros.length; i++) {
+    let numero = numeros[i];
+    let original = numero; 
+    let invertido = 0;
+    while (numero > 0) {
+      let digito = numero % 10;
+      invertido = invertido * 10 + digito;
+      numero = Math.floor(numero / 10);
+    }
+    console.log("Número original:", original, "-> Invertido:", invertido);
+  }
+}
+invertirNumeroArreglo();
+
+// 7. Contar dígitos de varios números.
+
+function contarDigitosArreglo() {
+    let numeros = [45, 678, 12345];
+  for (let i = 0; i < numeros.length; i++) {
+    let numero = numeros[i] + ""; // Convertimos a string
+    let contador = 0;
+    for (let j = 0; j < numero.length; j++) {
+      contador++;  
+    }
+    console.log("Cantidad de dígitos de", numeros[i], ":", contador);
+  }
+}
+contarDigitosArreglo();
+
+// 8. Factorial de varios números.
+
+function factorialNumeros() {
+  let nums = [3, 4, 5];
+  for (let i = 0; i < nums.length; i++) {
+    let n = nums[i];
+    let factorial = 1;
+  for (let cont = 1; cont <= n; cont++) {
+    factorial *= cont;
+  }
+  console.log("El factorial de", n, "es:", factorial);
+    }
+}
+factorialNumeros();
+
+// 9. Sumas sucesivas en una lista.
+
+function sumasSucesivasArreglos() {
+  let numeros = [2, 3, 4];
+  let veces = 4;
+  for (let i = 0; i < numeros.length; i++) {
+    let numero = numeros[i];
+    let suma = 0;
+    for (let j = 1; j <= veces; j++) {
+      suma = suma + numero;
+    }
+    console.log("Número:", numero, "-> Resultado =", suma);
+  }
+}
+sumasSucesivasArreglos();
+
+// 10. Restas sucesivas en una lista.
+
+function restasSucesivasArreglos() {
+  let numeros = [15, 20, 10];
+  let valor = 4;
+  for (let i = 0; i < numeros.length; i++) {
+    let numero = numeros[i];
+    for (let j = 1; j <= 3; j++) { 
+      numero = numero - valor;
+    }
+    console.log("Resultado final de la resta:", numero);
+  }
+}
+restasSucesivasArreglos();
