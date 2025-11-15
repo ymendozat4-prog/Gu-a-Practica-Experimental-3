@@ -2,7 +2,7 @@
 
 // 1. Serie de Fibonacci.
 
-function generarFibonacci(n) {
+function generarFibonacci(num) {
   let anterior = 0;
   let actual = 1;
   for (let i = 0; i < n; i++) {
@@ -12,7 +12,7 @@ function generarFibonacci(n) {
     actual = nuevo;
   }
 }
-let n = 8;
+let num = 8;
 generarFibonacci(n);
 
 // 2. Divisorees de un número.
@@ -53,23 +53,23 @@ if (entrada !== "" && Number(entrada) > 0) {
 
 // 4. Verificar si un número es perfecto.
 
-let entrada = prompt("Ingresa un número");
-let numero = parseInt(entrada);
-if (entrada !== "" && Number(entrada) > 0) {
+let ent = prompt("Ingresa un número");
+let number = parseInt(ent);
+if (ent !== "" && Number(ent) > 0) {
   let suma = 0;
   let proceso = "";
-  for (let divisor = 1; divisor < numero; divisor++) {
-    if (numero % divisor === 0) {
+  for (let divisor = 1; divisor < number; divisor++) {
+    if (number % divisor === 0) {
       suma += divisor;
       proceso += (proceso === "") ? divisor : " + " + divisor;
     }
   }
-  if (suma === numero) {
-    alert(numero + " es un número perfecto.\n" +
-          "Divisores (sin incluir " + numero + "): " + proceso + " = " + suma);
+  if (suma === number) {
+    alert(number + " es un número perfecto.\n" +
+          "Divisores (sin incluir " + number + "): " + proceso + " = " + suma);
   } else {
-    alert(numero + " NO es un número perfecto.\n" +
-          "Divisores (sin incluir " + numero + "): " + proceso + " = " + suma);
+    alert(number + " NO es un número perfecto.\n" +
+          "Divisores (sin incluir " + number + "): " + proceso + " = " + suma);
   }
 } else {
   alert("Por favor, ingresa un número entero positivo válido.");
